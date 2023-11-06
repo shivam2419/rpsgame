@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Information</title>
+    <link rel="stylesheet" href="/static/info.css">
+
+</head>
+
+<body>
+    <div class="header">
+        <img src="{% static 'heading.jpg' %}" alt="">
+    </div>
+    <div class="container">
+        <div class="left">
+            <p>...</p>
+            <form action="play" method="POST">
+                {% csrf_token %}
+                <img src="{% static 'sit.png' %}" alt="" id="img2">
+                <h2>INFORMATION</h2>
+                <input type="text" placeholder="Enter Name " id="name" name="sname" required>
+                <br><br>
+                <input type="text" placeholder="Enter your roll number " id="roll" name="roll" required>
+                <br><br>
+                <input type="submit" value="PLAY" id="btn">
+            </form>
+        </div>
+        <div class="right">
+            <img src="{% static 'hands.jpg' %}" alt="">
+        </div>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,95 @@
+.header{
+    width: 100%;
+    text-align: center;
+}
+.header img{
+    height: 100px;
+}
+.container {
+    padding: 5% 15% 6% 15%;
+    display: flex;
+    justify-content: space-around;
+}
+
+#img2 {
+    height: 55%;
+    margin-top: 5%;
+    position: fixed;
+
+}
+
+.left {
+    height: fit-content;
+    text-align: center;
+    background-color: blueviolet;
+    border-radius: 5px;
+}
+
+.left p {
+    color: white;
+    text-align: left;
+    font-size: 20px;
+    font-weight: bolder;
+    height: 20px;
+    letter-spacing: 0.5rem;
+    margin: 0;
+    padding: 0;
+    margin-left: 20px;
+}
+
+form {
+    background-color: white;
+    margin: 10px;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+form h2 {
+    font-size: 60px;
+    font-family: Arial, Helvetica, sans-serif;
+    /* color: blueviolet; */
+}
+
+form input {
+    width: 240px;
+    font-size: 20px;
+    padding: 5px;
+    font-family: sans-serif;
+    border-radius: 10px;
+    border: none;
+}
+
+#btn {
+    background-color: blueviolet;
+    font-size: 24px;
+    width: 200px;
+    margin-bottom: 20px;
+}
+
+.right img {
+    height: 300px;
+    border-radius: 20px;
+    box-shadow: 1px 1px 10px 1px rgb(40, 3, 74);
+    margin-top: 10%;
+}
+
+
+@media (max-width: 400px){
+    .container{
+        display: block;
+    }
+    #img2{
+        margin-top: 60%;
+        margin-left: -30%;
+        height: 35%;
+    }
+    .container .left h2{
+        font-size: 1.5rem;
+    }
+    .container .left input{
+        width: 160px;
+    }
+    .container .right img{
+        display: none;
+    }
+}

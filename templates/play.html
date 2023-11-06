@@ -1,0 +1,186 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RUNNING</title>
+    <link rel="stylesheet" href="/static/play.css">
+
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="{% static 'heading.jpg' %}" alt="">
+        </div>
+        <div class="header">
+            <h1>USER <b>VS</b> COMPUTER </h1>
+            <p>Get Points & Beat the Machine by choosing one of the hand image given below</p>
+        </div>
+        <div class="middle">
+            <div class="left">
+                <div class="your_score">
+                    <img src="{% static 'start.png' %}" alt="" id="ans">
+                </div>
+                <br>
+                
+                <input type="text" id="your_score" class="inp" name="u_score">
+                <br>
+                <label for="">{{ name|upper }} </label>
+            
+               
+            </div>
+            <div class="right">
+                <div class="opponent_score">
+                    <img src="{% static 'start.png' %}" alt="" id="ans2">
+                </div>
+                <br>
+                
+                <input type="text" id="opponent_score" class="inp" name="op_score">
+                <br>
+                <label for="">MACHINE</label>
+                
+                
+            </div>
+        </div>
+        <div id="middle2"></div>
+        <div id="options">
+            <button class="options" value="rock" onclick="rock()"> <img src="{% static 'rock.png' %}" alt=""  id="img"></button>
+            <button class="options" value="paper" onclick="paper()"><img src="{% static 'paper.png' %}" alt="" id="img"></button>
+            <button class="options" value="scissor" onclick="scissor()"><img src="{% static 'scissor.png' %}" alt="" id="img"></button>
+        </div>
+        <input id="result" >
+    </div>
+
+    <script>
+        let userscore=0;
+        let opp_score=0;
+        let choices=['rock','paper','scissor'];
+        let user=document.getElementById('your_score');
+        let comp=document.getElementById('opponent_score');
+        let result=document.getElementById('result');
+       
+        //Creating Rock function,after this will compare scissor & paper with rock... If situation in favor than will increase the scoe by 5 Points.
+        function rock()
+        {
+            //Getting manchine choice
+            let machine= Math.floor(Math.random() * 3);
+            
+        
+            if(choices[machine]=="scissor")
+            {
+                document.getElementById('ans').src="{% static 'rock.png' %}";
+                document.getElementById('ans2').src="{% static 'scissor.png' %}";
+                userscore+=5;
+            }
+            else if(choices[machine]=="paper")
+            {
+                document.getElementById('ans').src="{% static 'rock.png' %}";
+                document.getElementById('ans2').src="{% static 'paper.png' %}";
+                opp_score+=5;
+            }
+            else{
+                
+                document.getElementById('ans').src="{% static 'rock.png' %}";
+                document.getElementById('ans2').src="{% static 'rock.png' %}";
+            }
+
+            //INserting value to INPUT tag in HTML
+            user.value=userscore;
+            comp.value=opp_score;
+            //Comparing Scores
+            if(userscore>opp_score && userscore>=50)
+            {
+                alert('CONGRATULATIONS YOU WIN !! ');
+                result.value="PASS";
+                window.location.href="end";
+            }
+            else if(userscore<opp_score && opp_score>=50){
+                alert(' OOPS , YOU LOSE ! ');
+                result.value="PASS";
+                window.location.href="end";
+                
+
+            }
+        }
+        function paper()
+        {
+            let machine= Math.floor(Math.random() * 3);
+            console.log(choices[machine]);
+            if(choices[machine]=="scissor")
+            {
+                document.getElementById('ans').src="{% static 'paper.png' %}";
+                document.getElementById('ans2').src="{% static 'scissor.png' %}";
+                opp_score+=5;
+            }
+            else if(choices[machine]=="rock")
+            {
+                document.getElementById('ans').src="{% static 'paper.png' %}";
+                document.getElementById('ans2').src="{% static 'rock.png' %}";
+                userscore+=5;
+            }
+            else{
+                document.getElementById('ans').src="{% static 'paper.png' %}";
+                document.getElementById('ans2').src="{% static 'paper.png' %}";
+            }
+            user.value=userscore;
+            comp.value=opp_score;
+            if(userscore>opp_score && userscore>=50)
+            {
+                alert('CONGRATULATIONS YOU WIN !! ');
+                result.value="PASS";
+                window.location.href="end";
+            }
+            else if(userscore<opp_score && opp_score>=50){
+                alert(' OOPS , YOU LOSE ! ');
+                result.value="PASS";
+                window.location.href="end";
+
+            }
+        }
+        function scissor()
+        {
+            let machine= Math.floor(Math.random() * 3);
+            console.log(choices[machine]);
+            if(choices[machine]=="rock")
+            {
+                
+                document.getElementById('ans').src="{% static 'scissor.png' %}";
+                document.getElementById('ans2').src="{% static 'rock.png' %}";
+                opp_score+=5;
+            }
+            else if(choices[machine]=="paper")
+            {
+                document.getElementById('ans').src="{% static 'scissor.png' %}";
+                document.getElementById('ans2').src="{% static 'paper.png' %}";
+                userscore+=5;
+            }
+            else{
+                
+                document.getElementById('ans').src="{% static 'scissor.png' %}";
+                document.getElementById('ans2').src="{% static 'scissor.png' %}";
+            }
+
+            user.value=userscore;
+            comp.value=opp_score;
+            if(userscore>opp_score && userscore>=50)
+            {
+                alert('CONGRATULATIONS YOU WIN !! ');
+                result.value="PASS";
+                window.location.href="end";
+            }
+            else if(userscore<opp_score && opp_score>=50){
+                alert(' OOPS , YOU LOSE ! ');
+                result.value="PASS";
+                window.location.href="end";
+
+            }
+            
+
+        }
+      
+        
+        
+    </script>
+</body>
+</html>
